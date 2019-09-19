@@ -641,7 +641,7 @@ fn query_iter<'a>(
     query.split('&').map(|item| {
         let mut item = item.splitn(2, '=');
         let key = unwrap!(item.next());
-        let value = item.next();
+        let value = percent_decode(item.next());
         (key, value)
     })
 }
